@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require gentelella
+//= require gentelella-custom
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
