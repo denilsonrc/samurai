@@ -1,0 +1,190 @@
+body {
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
+
+.login-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+/* Theme's code */
+.container
+{
+    width:100%;
+    overflow:hidden;
+    display:inline-block;
+}
+.side-bar
+{
+    background:#28d;
+    position:fixed;
+    height:100%;
+    width:200px;
+    color:#fff;
+    transition: margin-left 0.5s;
+}
+
+.side-bar ul
+{
+    list-style:none;
+    padding:0px;
+    
+}
+
+.side-bar ul li.menu-head
+{
+    font-family: 'Lato', sans-serif;
+    padding:20px;
+}
+
+
+.side-bar ul li.menu-head a
+{
+    color:#fff;
+    text-decoration:none;
+    height:50px;
+}
+
+
+.side-bar ul .menu-head  a
+{
+    color:#fff;
+    text-decoration:none;
+    height:50px;
+}
+
+.side-bar ul .menu li  a 
+{
+    color:#fff;
+    text-decoration:none;
+    display:inline-table;
+    width:100%;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.side-bar ul .menu li  a:hover
+{
+    border-left:3px solid #ECECEA;    
+    padding-left:17px;
+}
+
+.side-bar ul .menu li  a.active
+{
+    padding-left:17px;
+    background:#D9853B;
+    border-left:3px solid #ECECEA;
+}
+
+.side-bar ul .menu li  a.active:before {
+   content:"";
+   position: absolute;
+   width: 0;
+   height: 0;
+   border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+	
+	border-left: 7px solid #D9853B;
+    margin-top: -10px;
+    margin-left: 180px;
+}
+
+
+.content
+{
+    padding-left: 200px;
+    transition: padding-left 0.5s;
+}
+
+.active > .side-bar
+{
+    margin-left:-150px;   
+    transition: margin-left 0.5s;
+}
+
+.active > .content
+{
+    padding-left:50px;
+    transition: padding-left 0.5s;
+}

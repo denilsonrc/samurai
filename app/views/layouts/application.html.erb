@@ -1,3 +1,10 @@
+<script>
+  $(document).ready(function(){
+    $(".push_menu").click(function(){
+         $(".wrapper").toggleClass("active");
+    });
+  });
+</script>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,113 +20,59 @@
 
   </head>
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SAMURAI</span></a>
+  <body>
+    <div class="container">
+    	<div class="row">
+    		<div class="wrapper">
+      	     <!-- sidebar menu -->
+          	    <div class="side-bar">
+                    <ul>
+                        <li class="menu-head">
+                            SAMURAI <a href="#" class="push_menu"><span class="glyphicon glyphicon-align-justify pull-right"></span></a>
+                        </li>
+                        <div class="menu">
+                            <li>
+                              <%= link_to dashboard_statistic_path, class: current?(dashboard_statistic_path) do %>
+                                 Dashboard <span class="glyphicon glyphicon-dashboard pull-right"></span>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to equipment_index_path, class: current?(equipment_index_path) do %>
+                                Grade <span class="glyphicon glyphicon-th pull-right"></span>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to new_equipment_path, class: current?(new_equipment_path) do %>
+                                Novo equipamento <span class="glyphicon glyphicon-dashboard pull-right"></span>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to rooms_path, class: current?(rooms_path) do %>
+                                Salas <span class="glyphicon glyphicon-dashboard pull-right"></span>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to new_room_path, class: current?(new_room_path) do %>
+                                Nova sala <span class="glyphicon glyphicon-dashboard pull-right"></span>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to destroy_user_session_path, :method=>'delete' do %>
+                                 Sair <span class="glyphicons glyphicons-exit pull-right"></span>
+                              <% end %>
+                            </li>
+                        </div>
+                    </ul>
+          	    </div>   
+                <div class="content">
+                    <div class="col-md-12">
+                        <%= yield %>
+                    </div>
+                </div>
             </div>
-
-            <div class="clearfix"></div>
-
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><%= link_to 'Dashboard', root_path %></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Equipamentos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> Salas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-            <!-- /sidebar menu -->
           </div>
         </div>
-
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <% if user_signed_in? %>
-                  <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <%= current_user.email %>
-                      <span class=" fa fa-angle-down"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                      <li><a href="javascript:;">Help</a></li>
-                      <li><%= link_to 'log out', destroy_user_session_path, :method=>'delete', class: "fa fa-sign-out pull-right" %></li>
-                    </ul>
-                  </li>
-                <% else %>
-                  <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <%= link_to "Sign in", new_user_session_path%>
-                      <span class=" fa fa-angle-down"></span>
-                    </a>
-                    
-                  </li>
-                <% end %>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div>
-              
-          </div>
-          <%= yield %>
-        </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <!-- /sidebar menu -->
       </div>
     </div>
     <%= javascript_include_tag 'application' %>
