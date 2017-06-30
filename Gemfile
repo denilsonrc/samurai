@@ -33,8 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use MongoId for ODM and to control databases in MongoDB
 gem 'mongoid', '~> 6.1' 
 
+# Use this gem for the files of bootstrap in this project
+gem 'twitter-bootstrap-rails', '~> 4.0'
 # Use gentelella-rails for gentelella's templates in rails
-gem 'gentelella-rails'
+#gem 'gentelella-rails'
 # Use SNMP for a data request of the equipments
 gem 'snmp'
 # 
